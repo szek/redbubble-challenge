@@ -1,7 +1,7 @@
 require 'nokogiri'
-require_relative 'camera_make'
-require_relative 'camera_model'
-require_relative 'creative_work'
+require_relative 'models/camera_make'
+require_relative 'models/camera_model'
+require_relative 'models/creative_work'
 
 class WorkParser
   attr_reader :makes, :models, :works, :errors

@@ -1,5 +1,5 @@
-require_relative 'slugger'
-require_relative 'has_creatives'
+require_relative '../modules/slugger'
+require_relative '../modules/has_creatives'
 
 class CameraModel
   include Slugger
