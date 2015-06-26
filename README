@@ -6,7 +6,11 @@ Please run to setup the environment:
 To run the command line application:
   bundle exec ruby main.rb <xml> <output>
 
-Relative paths are allowed as arguments
+  E.g.
+    cd app/ 
+    bundle exec ruby main.rb ../works.xml ../html
+
+  **Relative paths are allowed as arguments
 
 To Run Rspec suite:
   bundle exec rspec
