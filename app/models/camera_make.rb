@@ -17,7 +17,6 @@ class CameraMake
     models << model
   end
 
-  private
   def creatives
     @models.flat_map { |model| model.creatives }
   end

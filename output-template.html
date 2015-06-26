@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{{ TITLE GOES HERE }}</title>
+  <title><%= @title %></title>
   <style type="text/css">
     nav {
       margin: 10px;
     }
+
+    .creative {
+      display: block;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>{{ TITLE GOES HERE }}</h1>
+  <div class="container">
+    <header>
+      <h1><%= @title %></h1>
 
-    <nav>
-      {{ NAVIGATION GOES HERE }}
-    </nav>
-  </header>
+      <nav>
+        <ul>
+          <% @nav.each do |display, link| %>
+            <li>
+              <a href="<%= link %>"><%= display %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
 
-  {{ THUMBNAIL IMAGES GO HERE }}
+    <div>
+      <% @images.each do |image| %>
+        <img src="<%= image %>" class="creative">
+      <% end %>
+    </div>
+  </div>
 </body>
 </html>
