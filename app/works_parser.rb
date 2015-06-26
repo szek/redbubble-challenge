@@ -2,8 +2,8 @@ require 'nokogiri'
 require_relative 'models/camera_make'
 require_relative 'models/camera_model'
 require_relative 'models/creative_work'
-puts File.dirname(__FILE__)
-class WorkParser
+
+class WorksParser
   attr_reader :makes, :models, :works, :errors
   MAKE_XML_ATTR = 'exif make'
   MODEL_XML_ATTR = 'exif model'

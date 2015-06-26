@@ -1,5 +1,5 @@
 module Slugger
   def slug_for(str)
-    str.gsub(/\s+/, '-').gsub(/[^\w-]/, '').downcase
+    str.gsub(/[^\w\s]/, '').gsub(/\s+/, '-').downcase
   end
 end
