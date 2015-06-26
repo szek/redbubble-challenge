@@ -16,4 +16,5 @@ To Run Rspec suite:
   bundle exec rspec
 
 Assumptions:
-  - List the first 10 works - I am listing the works in order of the work's timestamp in the XML rather than the actual order it appeared in the file
+  - List the first 10 works 
+    I am listing the works in order of the work's timestamp in the XML rather than the actual order it appeared in the file
