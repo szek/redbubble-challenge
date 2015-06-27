@@ -2,10 +2,9 @@ require 'erb'
 
 class WorksHtmlGenerator
   DEFAULT_WORKS_COUNT = 10
-
+  TEMPLATE = File.read File.join(File.dirname(__FILE__), 'templates/work.html.erb')
   def initialize(makes, output_dir)
     @makes = makes
-    @template = File.read File.join(File.dirname(__FILE__), 'templates/work.html.erb')
     @output_dir = output_dir
   end
 
@@ -47,7 +46,7 @@ class WorksHtmlGenerator
   end
 
   def render
-    ERB.new(@template).result binding
+    ERB.new(TEMPLATE).result binding
   end
 
   def save(filename, content)
