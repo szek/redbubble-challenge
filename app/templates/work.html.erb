@@ -12,10 +12,7 @@
     }
     ul li {
       display: inline-block;
-      padding: 2px 10px;
       font-size: 14px;
-      border-radius: 3px;
-      border: 1px solid #EEE;
     }
     .creatives {
       margin-top: 40px;
@@ -35,7 +32,7 @@
         <ul class="text-center">
           <% @nav.each do |display, link| %>
             <li>
-              <a href="<%= link %>"><%= display %></a>
+              <a class="btn-default btn btn-sm" href="<%= link %>"><%= display %></a>
             </li>
           <% end %>
         </ul>
