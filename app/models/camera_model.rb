@@ -1,9 +1,9 @@
 require_relative '../modules/slugger'
-require_relative '../modules/has_creatives'
+require_relative '../modules/has_creative_works'
 
 class CameraModel
   include Slugger
-  include HasCreatives
+  include HasCreativeWorks
 
   attr_reader :name, :creatives, :slug
 

@@ -1,13 +1,13 @@
-require_relative '../app/modules/has_creatives'
+require_relative '../app/modules/has_creative_works'
 require 'ostruct'
 
 class Foo
-  include HasCreatives
+  include HasCreativeWorks
 
   attr_accessor :creatives
 end
 
-describe HasCreatives do
+describe HasCreativeWorks do
   let(:array) { [1,2, 3] }
   let(:object_array) do
     [

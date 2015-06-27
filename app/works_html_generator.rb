@@ -10,8 +10,6 @@ class WorksHtmlGenerator
   end
 
   def generate_tree
-    setup_dirs
-
     save 'index.html', render_index
 
     @makes.each do |make| 
@@ -53,6 +51,7 @@ class WorksHtmlGenerator
   end
 
   def save(filename, content)
+    setup_dirs
     File.open(File.join(@output_dir, filename), 'w') { |f| f.write content }
   end
 
