@@ -3,6 +3,7 @@ require 'erb'
 class WorksHtmlGenerator
   DEFAULT_WORKS_COUNT = 10
   TEMPLATE = File.read File.join(File.dirname(__FILE__), 'templates/work.html.erb')
+
   def initialize(makes, output_dir)
     @makes = makes
     @output_dir = output_dir
@@ -20,28 +21,28 @@ class WorksHtmlGenerator
     end
   end
 
-  def render_model make, model
+  def render_model(make, model, works_count: DEFAULT_WORKS_COUNT)
     @title = model.name
     @nav = { 'Index' => '../index.html',  make.name => "../makes/#{make.slug}.html" }
-    @images = model.creative_works(sort_by: :date, limit: DEFAULT_WORKS_COUNT).map(&:small)
+    @images = model.creative_works(sort_by: :date, limit: works_count).map(&:small)
     render
   end
 
-  def render_make make
+  def render_make(make, works_count: DEFAULT_WORKS_COUNT)
     @title = make.name
     @nav = { 'Index' => '../index.html' }
-    @images = make.creative_works(sort_by: :date, limit: DEFAULT_WORKS_COUNT).map(&:small)
+    @images = make.creative_works(sort_by: :date, limit: works_count).map(&:small)
 
     make.models.each_with_object(@nav) { |model, hash| hash[model.name] = "../models/#{model.slug}.html"}
     render
   end
 
-  def render_index
+  def render_index(works_count: DEFAULT_WORKS_COUNT)
     @title = 'Index'
     @nav = {}
     @makes.each_with_object(@nav) { |make, hash| hash[make.name] = "makes/#{make.slug}.html" }
     @images = @makes.flat_map { |make| make.creative_works }.sort { |a, b| a.date <=> b.date }
-      .map(&:small).first(DEFAULT_WORKS_COUNT)
+      .map(&:small).first(works_count)
     render
   end
 
