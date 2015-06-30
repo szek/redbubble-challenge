@@ -24,7 +24,7 @@ class WorksHtmlGenerator
   def render_model(make, model, works_count: DEFAULT_WORKS_COUNT)
     @title = model.name
     @nav = { 'Index' => '../index.html',  make.name => "../makes/#{make.slug}.html" }
-    @images = make.creative_works(sort_by: :date).map(&:small)
+    @images = model.creative_works(sort_by: :date, limit: works_count).map(&:small)
     render
   end
 
